@@ -118,6 +118,7 @@ GEM
       activesupport (>= 3.0.0)
     climate_control (0.2.0)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     database_cleaner (1.99.0)
     date (3.3.3)
@@ -298,6 +299,8 @@ GEM
       i18n
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redis-client (0.17.0)
+      connection_pool
     regexp_parser (2.8.2)
     reline (0.3.9)
       io-console (~> 0.5)
@@ -371,6 +374,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.1.6)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
+    sidekiq-failures (1.0.4)
+      sidekiq (>= 4.0.0)
     solidus_api (4.2.1)
       jbuilder (~> 2.8)
       kaminari-activerecord (~> 1.1)
@@ -503,6 +513,8 @@ DEPENDENCIES
   rubocop-rspec (~> 2.0)
   sassc-rails
   selenium-webdriver
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form!
   solidus_api
   solidus_auth_devise (~> 2.5)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'home#index'
 
   devise_for(:user, {
@@ -13,6 +14,11 @@ Rails.application.routes.draw do
     skip: [:unlocks, :omniauth_callbacks],
     path_names: { sign_out: 'logout' }
   })
+
+  require 'sidekiq/web'
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :users, only: [:edit, :update]
 
