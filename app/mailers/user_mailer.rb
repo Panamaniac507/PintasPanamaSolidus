@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserMailer < Spree::BaseMailer
+  default from: 'herbert.jr80@gmail.com'
+
   def reset_password_instructions(user, token, *_args)
     @store = Spree::Store.default
     @edit_password_reset_url = edit_spree_user_password_url(reset_password_token: token, host: @store.url)
@@ -11,5 +13,11 @@ class UserMailer < Spree::BaseMailer
     @store = Spree::Store.default
     @confirmation_url = spree_user_confirmation_url(confirmation_token: token, host: @store.url)
     mail to: user.email, from: from_address(@store), subject: "#{@store.name} #{I18n.t(:subject, scope: [:devise, :mailer, :confirmation_instructions])}"
+  end
+
+  def welcome_email
+    @user = params[:user]
+    @url = 'https://pintas.pty/login'
+    mail(to: @user.email, subject: 'Bienvenido(a) a Pintas Panama !')
   end
 end

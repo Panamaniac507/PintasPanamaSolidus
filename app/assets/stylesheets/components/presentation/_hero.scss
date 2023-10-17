@@ -6,5 +6,10 @@
   &__container {
     @extend %section-spacings;
     display: flex;
+    flex-direction: column;
+
+    img {
+      margin-bottom: 3rem
+    }
   }
 }
