@@ -161,6 +161,7 @@ GEM
       sassc (~> 2.0)
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     handlebars_assets (0.23.9)
@@ -498,6 +499,7 @@ DEPENDENCIES
   factory_bot_rails
   ffaker (~> 2.13)
   font-awesome-sass (~> 6.1)
+  geocoder (~> 1.8)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
